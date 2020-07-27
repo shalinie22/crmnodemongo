@@ -17,26 +17,6 @@ app.use(bodyParser.json());
 app.use(cors());
 const port = process.env.PORT || 4000;
 app.listen(port, () => console.log("your app is running in", port));
-// app.post("/admin",(req,res)=>{
-//     mongoClient.connect(dbURL,(err,client)=>{
-// if(err) throw err;
-// let db=client.db("SHACRM");
-// if(c<1){ 
-//     c=c+1;
-// db.collection("details").insertOne(req.body,(err,data)=>{
-//     if(err) throw err;
-//      res.json({message:"Admin  Created"}) 
-
-//     client.close();
-// })
-// }
-// else{
-
-//     console.log("Admin cannot be Created");
-//     res.json({message:"Admin cannot be Created"})
-// }
-// });
-//     });
 
 app.get("/getadmin",(req,res)=>{
     mongoClient.connect(dbURL,(err,client)=>{
@@ -129,7 +109,7 @@ app.post("/add/:email",(req,res)=>{
 
 
  
-app.put("/deebika/:email",(req,res)=>{
+app.put("/shalinie/:email",(req,res)=>{
     mongoClient.connect(dbURL,(err,client)=>{
         if(err) throw err;
         client.db("SHACRM").collection("details").findOne({email:req.params.email},(err,data)=>{
